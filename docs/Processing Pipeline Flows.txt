@@ -1,0 +1,153 @@
+PROCESSING PIPELINE FLOWS — PLAIN TEXT
+
+SOURCE: Processing Pipeline Flows.md
+
+============================================================
+SECTION A — OPENAI DATA EXPORTS
+============================================================
+1) Drop zipped OpenAI data export file (e.g., 20251012.zip) into:
+   C:\dev\Projects\content-extractor-v1\data\inputs\openai_data_exports
+
+2) Expand:
+   C:\dev\Projects\content-extractor-v1\data\inputs\openai_data_exports\[filename].zip
+   to:
+   C:\dev\Projects\content-extractor-v1\data\inputs\openai_data_exports\[filename]
+
+3) Move the ZIP file to the expanded folder (duplicate/confirmation step kept by design):
+   C:\dev\Projects\content-extractor-v1\data\inputs\openai_data_exports\[filename].zip
+   -> C:\dev\Projects\content-extractor-v1\data\inputs\openai_data_exports\[filename]
+
+4) Generate:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\html\rendered_chat.html
+   from chat.html, conversations.json, and all other necessary artifacts included with the OpenAI data export.
+
+5) Generate split HTML parts from rendered_chat.html:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\html\rendered_chat_part_[rendered chat part #]_of_[total # of rendered chat parts].html
+   (source: ...\html\rendered_chat.html)
+
+6) Generate Markdown from rendered_chat.html:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\markdown\rendered_chat.md
+
+7) Generate split Markdown parts from rendered_chat.md:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\markdown\rendered_chat_part_[rendered chat markdown part #]_of_[total # of rendered chat markdown parts].md
+
+8) Generate JSON from rendered_chat.html:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\json\rendered_chat.json
+
+9) Generate split JSON parts from rendered_chat.json:
+   C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\json\rendered_chat_part_[rendered chat json part #]_of_[total # of rendered chat json parts].json
+
+10) Generate PDF from rendered_chat.html:
+    C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\pdf\rendered_chat.pdf
+
+11) Generate split PDF parts from rendered_chat.pdf:
+    C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\pdf\rendered_chat_part_[rendered chat pdf part #]_of_[total # of rendered chat pdf parts].pdf
+
+12) Generate plain text from rendered_chat.html:
+    C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\text\rendered_chat.txt
+
+13) Generate split text parts from rendered_chat.txt:
+    C:\dev\Projects\content-extractor-v1\data\outputs\openai_data_exports\[filename]\text\rendered_chat_part_[rendered chat text part #]_of_[total # of rendered chat text parts].txt
+
+
+============================================================
+SECTION B — TEXT CONTAINING URLS
+============================================================
+1) Drop a text file containing URLs for one or more root domains (e.g., urls.txt) into:
+   C:\dev\Projects\content-extractor-v1\data\inputs\urls\
+
+2) For each root domain, create or append the per-domain URL list:
+   Input master list:
+     C:\dev\Projects\content-extractor-v1\data\inputs\urls\[url text filename].txt
+   Per-domain list (create if missing, else append new URLs):
+     C:\dev\Projects\content-extractor-v1\data\inputs\urls\[domain root URL]\[domain root URL].txt
+
+3) Generate combined HTML per domain:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\html\[rendered domain root URL HTML].html
+   (source: ...\inputs\urls\[domain root URL]\[domain root URL].txt)
+
+4) Generate split HTML parts from the rendered domain HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\html\[rendered domain root URL HTML]_part_[rendered domain root URL HTML part #]_of_[total # of rendered domain root URL HTML parts].html
+
+5) Generate Markdown from the rendered domain HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\markdown\[rendered domain root URL markdown].md
+
+6) Generate split Markdown parts:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\markdown\[rendered domain root URL markdown]_part_[rendered domain root URL markdown part #]_of_[total # of rendered domain root URL markdown parts].md
+
+7) Generate JSON from the rendered domain HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\json\[rendered domain root URL json].json
+
+8) Generate split JSON parts:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\json\[rendered domain root URL json]_part_[rendered domain root URL json part #]_of_[total # of rendered domain root URL json parts].json
+
+9) Generate PDF from the rendered domain HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\pdf\[rendered domain root URL pdf].pdf
+
+10) Generate split PDF parts:
+    C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\pdf\[rendered domain root URL pdf]_part_[rendered domain root URL pdf part #]_of_[total # of rendered domain root URL pdf parts].pdf
+
+11) Generate plain text from the rendered domain HTML:
+    C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\text\[rendered domain root URL text].txt
+
+12) Generate split text parts:
+    C:\dev\Projects\content-extractor-v1\data\outputs\urls\[domain root URL]\text\[rendered domain root URL text]_part_[rendered domain root URL text part #]_of_[total # of rendered domain root URL text parts].txt
+
+
+============================================================
+SECTION C — PDFS
+============================================================
+1) Drop one or more PDF files into:
+   C:\dev\Projects\content-extractor-v1\data\inputs\pdfs\
+
+2) Generate HTML per PDF:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\html\[rendered pdf HTML].html
+   (source: ...\inputs\pdfs\[pdf name].pdf)
+
+3) Generate split HTML parts:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\html\[rendered pdf HTML]_part_[rendered pdf HTML part #]_of_[total # of rendered pdf HTML parts].html
+
+4) Generate Markdown from the rendered PDF HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\markdown\[rendered pdf markdown].md
+
+5) Generate split Markdown parts:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\markdown\[rendered pdf markdown]_part_[rendered pdf markdown part #]_of_[total # of rendered pdf markdown parts].md
+
+6) Generate JSON from the rendered PDF HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\json\[rendered pdf json].json
+
+7) Generate split JSON parts:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\json\[rendered pdf json]_part_[rendered pdf json part #]_of_[total # of rendered pdf json parts].json
+
+8) Generate normalized PDF (if needed) from the rendered PDF HTML:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\pdf\[rendered pdf pdf].pdf
+
+9) Generate split PDF parts from the normalized PDF:
+   C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\pdf\[rendered pdf pdf]_part_[rendered pdf pdf part #]_of_[total # of rendered pdf pdf parts].pdf
+
+10) Generate plain text from the rendered PDF HTML:
+    C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\text\[rendered pdf text].txt
+
+11) Generate split text parts:
+    C:\dev\Projects\content-extractor-v1\data\outputs\pdfs\[pdf name]\text\[rendered pdf text]_part_[rendered pdf text part #]_of_[total # of rendered pdf text parts].txt
+
+
+NOTES ON CORRECTIONS APPLIED (DETAILS RETAINED):
+- Fixed typos: “renedered” -> “rendered”; “.text” -> “.txt”.
+- Normalized quoting and path separators for plain text readability.
+- Kept step 3 in Section A as an explicit move/confirmation operation to avoid removing any original detail.
+- Clarified sources and destinations for split-part generation steps.
+- Preserved every transformation stage and file naming convention across HTML, Markdown, JSON, PDF, and TXT outputs.
+
+
+HOW TO RUN
+- OpenAI export (auto pipeline): python process_pending_inputs.py --config config.openai.json --overwrite
+- OpenAI export (render only): python render_chat_html.py --config config.openai.json
+- OpenAI export (convert rendered HTML): python convert_rendered_html_to_md.py data\outputs\openai_data_exports\<export-id>\html\rendered_chat.html data\outputs\openai_data_exports\<export-id>\markdown --label <export-id>
+- URL batch (auto pipeline): python process_pending_inputs.py --config config.urls.json --overwrite
+- URL batch (direct control): python process_urls.py --urls-file data\inputs\urls\<list-name>.txt --config config.urls.json --overwrite
+- URL batch (reuse existing HTML): python process_urls.py --urls-file data\inputs\urls\<list-name>.txt --config config.urls.json --skip-render
+- PDF set (auto pipeline): python process_pending_inputs.py --config config.pdfs.json --overwrite
+- Sandbox run (safe overrides): python process_pending_inputs.py --config config.sandbox.json --overwrite
+- Cleanup (dry-run by default): pwsh -File .\cleanup.ps1
+- Cleanup with deletion: pwsh -File .\cleanup.ps1 -Force
